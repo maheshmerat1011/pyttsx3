@@ -1,0 +1,24 @@
+import pyttsx3
+
+def speak(text):
+    engine = pyttsx3.init()
+    engine.setProperty('rate', 150)  # Speed of speech
+    engine.setProperty('volume', 1.0)  # Volume level
+    engine.say(text)
+    engine.runAndWait()
+
+def main():
+    username = "Your_Under25_Username"  # Replace with your actual username
+    print("Ask me a question, e.g., 'What are the live missions?'")
+    user_input = input("You: ")
+    
+    if "live missions" in user_input.lower():
+        response = f"The current missions are: Design an Under 25 T-shirt, Create a startup idea, and Build a community project. This is brought to you by {username}."
+    else:
+        response = f"I'm not sure how to answer that. But keep hustling, {username}!"
+    
+    print("Bot:", response)
+    speak(response)
+
+if __name__ == "__main__":
+    main()
